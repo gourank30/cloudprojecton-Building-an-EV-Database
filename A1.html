@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <style media="screen">
+    table {
+width:100%;
+}
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+}
+th, td {
+padding: 15px;
+text-align: center;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color: #fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+    </style>
+    <meta charset="utf-8"/>
+    <title>Login/Logout page</title>
+  </head>
+<body style="text-align:center;">
+  <div class="container">
+    {% if user %}
+    Hello {{ user.email() }} welcome to the application</p>
+    {% else %}
+    <p>Welcome to {{ url_string }} page</p>
+    {% endif %}
+    <p>Click here to {{ url_string }} <a href='{{ url }}'>here</a></p>
+    <table id="t01" style="width:50%"align="center">
+      <h3>Car Reviews</h3>
+      <tr>
+        <th>Customer-Id</th>
+        <th>Car</th>
+        <th>Rating</th>
+        <th>Review</th>
+      </tr>
+      {% for i in y %}
+      <tr>
+        <td>{{i.limit}}</td>
+        <td>{{i.carname}}</td>
+        <td>{{i.rate}}</td>
+        <td>{{i.custrev}}</td>
+      </tr>
+      {% endfor %}
+    </div>
+  </body>
+</html>

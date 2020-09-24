@@ -1,0 +1,129 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style media="screen">
+    body {
+      background-color: lightblue;
+    }
+  </style>
+  <style media="screen">
+    function f2(){
+
+      onclick="\datret";
+    }
+  </style>
+  <style media="screen">
+
+table, th, td {
+border: 1px solid black;
+border-collapse: collapse;
+}
+th, td {
+padding: 15px;
+text-align: center;
+}
+table#t01 tr:nth-child(even) {
+background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+background-color: #fff;
+}
+table#t01 th {
+background-color: black;
+color: white;
+}
+  </style>
+  <style media="screen">
+    .div3{
+      border-color: 1px solid black;
+    }
+    .item1 { grid-area: 1; }
+    .item2 { grid-area: 2; }
+    .item3 { grid-area: 3; }
+    .item5 { grid-area: 4; }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+      '1'
+      '2 2 3'
+      '4';
+      grid-gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-container > div {
+
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+  </style>
+  <style media="screen">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 2px 1px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+
+      .buttonS :hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+    </style>
+    <style media="screen">
+      .solid {border-style: solid;
+        border-color: red;}
+
+      </style>
+      <title>This is the Ev Upload</title>
+    </head>
+  <body align-content="center">
+      <form action="/datret" method="get" align="center">
+        <h1 align="center">The Search</h1>
+        <div class="solid"><br>
+          Name: <input type="text" name="t1" value=""><br>
+          Manufacturer:<input type="text" name="t2" value=""><br>
+          Year: From:<input type="number" name="t3" value=""min="1950" max="2020">&emsp;TO: <input type="number" name="t3.2" value=""min="1950" max="2020"><br>
+          Batterysize: From: <input type="number" name="t4" value=""min="0">&emsp;TO: <input type="number" name="t4.2" value=""min="0"><br>
+          Wltprange: From: <input type="number" name="t5" value=""min="0">&emsp;TO: <input type="number" name="t5.2" value=""min="0"><br>
+          Cost Range: From: <input type="number" name="t6" value=""min="0">&emsp;To:<input type="number" name="t6.2" value=""min="0"><br>
+          Power: From: <input type="number" name="t7" value=""min="0">&emsp;TO: <input type="number" name="t7.2" value=""min="0"><br>
+          <input type="submit" name="Search" value="Search" class="button buttonS" id="Search" /> <input type="reset" class="button buttonS">
+          <input type="button" class="button buttonS" value="Go back!" onclick="history.back()"><br>
+          <br>
+        </form>
+        <form>
+          <table id="t01" style="width:50%"align="center">
+            <tr>
+            <th>name</th>
+            <th>manufacturer</th>
+            <th>Year</th>
+            <th>batterysize</th>
+            <th>wltprange</th>
+            <th>cost</th>
+            <th>power</th>
+            {% for i in y %}
+            <tr>
+              <td><a href="/editdel?button=true&name={{i.name}}&manufacturer={{i.manufacturer}}&year={{i.year}}&batterysize={{i.batterysize}}&wltprange={{i.wltprange}}&cost={{i.cost}}&power={{i.power}}">{{i.name}}</a></td>
+              <td>{{i.manufacturer}}</td>
+              <td>{{i.year}}</td>
+              <td>{{i.batterysize}}</td>
+              <td>{{i.wltprange}}</td>
+              <td>{{i.cost}}</td>
+              <td>{{i.power}}</td>
+            </tr>
+            {% endfor %}
+
+          </table>
+        </div>
+      </form>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style media="screen">
+    body {
+      background-color: lightblue;
+      align-content: center;
+    }
+  </style>
+  <style media="screen">
+    .div3{
+      border-color: 1px solid black;
+      align-content: center;
+    }
+    .item1 { grid-area: 1; }
+    .item2 { grid-area: 2; }
+    .item3 { grid-area: 3; }
+    .item5 { grid-area: 4; }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+      '1'
+      '2 2 3'
+      '4';
+      grid-gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-container > div {
+
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+  </style>
+  <style media="screen">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+
+      .buttonS :hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+    </style>
+    <style media="screen">
+      .solid {border-style: solid;
+        border-color: red;}
+
+      </style>
+      <title>This is the Ev Upload</title>
+</head>
+
+<body align-content="center">
+        <div class="grid-container">
+          <div class="item1="><h1 style="color:red;"><b>Upload your Ev data</b></h1>
+            <div class="row">
+              <form action="/Data" autocomplete="off">
+                <div class="solid">
+                <div class="item3"><label for="name">Name : </label>
+                  <div3><input type="text" id="name" name="name" value="" required></div3></div></<br>
+                  <div class="item3"><label for="manufacturer">Manufacturer : </label>
+                    <input type="text" id="Manufacturer" name="manufacturer" value=""required>
+                  </div></<br>
+                  <div class="item3"><label for="year">Year : </label>
+                    <input type="number" id="year" name="year" value="" min="1950" max="2020"required>
+                  </div></<br>
+                  <div class="item3"><label for="batterysize">Batterysize : </label>
+                    <input type="number" id="batterysize" name="batterysize" value="" min="0" required>
+                  </div></<br>
+                  <div class="item3"><label for="wltprange">Wltprange : </label>
+                    <input type="number" id="wltprange" name="wltprange" value="" min="0"bnrequired>
+                  </div>
+                  <div class="item3"><label for="cost">Cost : </label>
+                    <input type="number" id="cost" name="cost" value="" min="0"required>
+                  </div></<br>
+                  <div class="item3"><label for="power">Power : </label>
+                    <input type="number" id="power" name="power" value="" min="0"required>
+                  </div></<br>
+                  <div class="item3"><input type="submit" value="Submit" class="button buttonS">
+                    <input type="reset" class="button buttonS"> <input type="button" class="button buttonS" value="Back" onclick="history.back()">
+                  </div>
+                  <div class=" item5"><p style="color:blue;">NOTE : This page consit of all the required feild to be flilled for your EV data.</p></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+  </body>
+</html>

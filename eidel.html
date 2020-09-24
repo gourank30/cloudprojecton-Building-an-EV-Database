@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>Edit or delete EV</title>
+  <meta charset="utf-8">
+  <style media="screen">
+    body {
+      background-color: lightblue;
+      align-content: center;
+    }
+  </style>
+  <style media="screen">
+    .div3{
+      border-color: 1px solid black;
+      align-content: center;
+    }
+    .item1 { grid-area: 1; }
+    .item2 { grid-area: 2; }
+    .item3 { grid-area: 3; }
+    .item5 { grid-area: 4; }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+      '1'
+      '2 2 3'
+      '4';
+      grid-gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-container > div {
+
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+  </style>
+  <style media="screen">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+
+      .buttonS :hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+    </style>
+    <style media="screen">
+      .solid {border-style: solid;
+        border-color: red;}
+
+      </style>
+</head>
+<body>
+  <form  action="/editdel" method="get" align="center">
+  <div class="grid-container">
+    <h1><b>Edit Or Delete Your Ev</b></h1>
+    <div class="solid">
+      <h7><b>Now you can edit or Delete your EV Data</b></h7><br><br>
+    Name: <input type="text" name="e1" id="e1" value="{{name}}"placeholder="{{name}}"><br>
+    <input type="hidden" name="name" id="name" value="{{name}}"placeholder="{{name}}"><br>
+    Manufacturer:<input type="text" name="e2" id="e2" value="{{manufacturer}}" placeholder=""="{{manufacturer}}"><br>
+    <input type="hidden" name="manufacturer" id="manufacturer" value="{{manufacturer}}"placeholder="{{manufacturer}}"><br>
+    Year:<input type="text" name="e3" id="e3" value="{{year}}"placeholder="{{year}}" min="1950" max="2020"><br>
+    <input type="hidden" name="year" id="year" value="{{year}}"placeholder="{{Year}}"><br>
+    Batterysize:<input type="text" name="e4" id="e4"value="{{batterysize}}"placeholder="{{batterysize}}" min="0"><br>
+    <input type="hidden" name="batterysize" id="batterysize" value="{{batterysize}}"placeholder="{{batterysize}}"><br>
+    Wltprange:<input type="text" name="e5" id="e5"value="{{wltprange}}" placeholder="{{wltprange}}" min="0"><br>
+    <input type="hidden" name="wltprange" id="wltprange" value="{{wltprange}}"placeholder="{{wltprange}}"><br>
+    Cost:<input type="text" name="e6" id="e6" value="{{cost}}" placeholder="{{cost}}" min="0"><br>
+    <input type="hidden" name="cost" id="cost" value="{{cost}}"placeholder="{{cost}}"><br>
+    Power:<input type="text" name="e7" id="e7" value="{{power}}" placeholder="{{power}}" min="0"><br><br>
+    <input type="hidden" name="power" id="power" value="{{power}}"placeholder="{{name}}"><br>
+    <button type="submit" name="Edit"class="button buttonS"value="Edit">Edit</button>
+    <button type="submit" name="Delete"class="button buttonS"value="Delete">Delete</button>
+    <button type="submit" name="Review" class="button buttonS" value="Review"/><a href="/rev?button=true&id=rev&name={{name}}">Review</a></button>
+    <input type="button" class="button buttonS" value="Go back!" onclick="history.back()">
+    <div class=" item5"><p style="color:blue;">NOTE : once you are done you will be redirected to main MainPage.</p></div>
+  </div>
+  </div>
+</form>
+</body>
+</html>

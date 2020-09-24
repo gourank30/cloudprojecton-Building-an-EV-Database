@@ -1,0 +1,150 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style media="screen">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 2px 1px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+
+      .buttonS :hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+    </style>
+    <style media="screen">
+
+    table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    }
+    th, td {
+    padding: 15px;
+    text-align: center;
+    }
+    table#t01 tr:nth-child(even) {
+    background-color: #eee;
+    }
+    table#t01 tr:nth-child(odd) {
+    background-color: #fff;
+    }
+    table#t01 th {
+    background-color: black;
+    color: white;
+    }
+    </style>
+
+  <style media="screen">
+    body {
+      background-color: lightblue;
+      align-content: center;
+    }
+  </style>
+  <style media="screen">
+    .div3{
+      border-color: 1px solid black;
+      align-content: center;
+    }
+    .item1 { grid-area: 1; }
+    .item2 { grid-area: 2; }
+    .item3 { grid-area: 3; }
+    .item5 { grid-area: 4; }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+      '1'
+      '2 2 3'
+      '4';
+      grid-gap: 10px;
+      padding: 10px;
+    }
+
+    .grid-container > div {
+
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
+  </style>
+  <style media="screen">
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+
+      .buttonS :hover{
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      }
+    </style>
+    <style media="screen">
+      .solid {border-style: solid;
+        border-color: red;}
+
+      </style>
+
+      <title>This is the Ev Upload</title>
+    </head>
+
+    <body align-content="center">
+      <div class="grid-container">
+        <form action="/comp" method="get" align="center" >
+          <p>Compare ec of two or more ev data</p>
+          <table id="t01" style="width:10%"align="center">
+            <tr>
+            <th>name</th>
+            </tr>
+              {% for i in y %}
+              <tr>
+                <td><input type="checkbox"value="{{i.name}}" name="check"id="check" >{{i.name}}</td>
+              </tr>
+              {% endfor %}
+              </table>
+          <input type="submit" name="submit" id="submit" value="submit"class="button buttonS">
+          <input type="button" class="button buttonS" value="Back" onclick="history.back()">
+          <br><br>
+        </div>
+      </form>
+        <form action="/comp" method="get" align="center">
+          <h5>The comepared document</h5>
+        <table id="t01" style="width:50%"align="center">
+          <tr>
+          <th>name</th>
+          <th>manufacturer</th>
+          <th>Year</th>
+          <th>batterysize</th>
+          <th>wltprange</th>
+          <th>cost</th>
+          <th>power</th>
+          </tr>
+          {%for i in z%}
+          <tr>
+            <td><a href="/editdel?button=true&name={{i.name}}&manufacturer={{i.manufacturer}}&year={{i.year}}&batterysize={{i.batterysize}}&wltprange={{i.wltprange}}&cost={{i.cost}}&power={{i.power}}">{{i.name}}</a></td>
+            <td>{{i.manufacturer}}</td>
+            <td>{{i.year}}</td>
+            <td>{{i.batterysize}}</td>
+            <td>{{i.wltprange}}</td>
+            <td>{{i.cost}}</td>
+            <td>{{i.power}}</td>
+          </tr>
+          {%endfor%}
+        </form>
+    </body>
+</html>

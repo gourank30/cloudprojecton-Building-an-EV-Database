@@ -1,0 +1,71 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style media="screen">
+  body {
+    background-color: lightblue;
+    align-content: center;
+  }
+  </style>
+  <style media="screen">
+  .div3{
+    border-color: 1px solid black;
+    align-content: center;
+  }
+  .item1 { grid-area: 1; }
+  .item2 { grid-area: 2; }
+  .item3 { grid-area: 3; }
+  .item5 { grid-area: 4; }
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+    '1'
+    '2 2 3'
+    '4';
+    grid-gap: 10px;
+    padding: 10px;
+  }
+  .grid-container > div {
+
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+  </style>
+  <style media="screen">
+    .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    .buttonS :hover{
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    </style>
+    <style media="screen">
+    .solid {border-style: solid;
+      border-color: red;}
+    </style>
+      <title>This is the Ev Upload</title>
+  </head>
+  <body align-content="center">
+      <div class="grid-container">
+        <form action="/rev" method="get" align="center">
+          <p>GIVE A REWIEW AND RATING TO {{name}} CAR.</p>
+
+          <input type="hidden" name="name" value="{{name}}">
+          <textarea id="custrev" name="custrev" placeholder="Write your review" style="height:200px;width:200px" required></textarea><br>
+            <p>Rate the car from 0-10</p><br>0<input type="range" name="rate" min="0" max="10" id="rate">10 <br>
+          <input type="submit" name="submit" value="submit">
+        </form>
+      </div>
+  </body>
+</html>
